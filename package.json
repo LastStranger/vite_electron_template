@@ -1,0 +1,26 @@
+{
+  "name": "vite_electron_template",
+  "private": true,
+  "version": "0.0.0",
+  "main": "app/index.js",
+  "scripts": {
+    "dev": "cross-env IS_DEV=true electron . & vite",
+    "build": "electron . && tsc && vite build",
+    "preview": "vite preview",
+    "electron": "electron ."
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^2.1.0",
+    "concurrently": "^7.4.0",
+    "cross-env": "^7.0.3",
+    "electron": "^21.1.1",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
+  }
+}
