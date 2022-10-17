@@ -1,0 +1,2 @@
+# vite_electron_template
+vite和electron的基础模板
