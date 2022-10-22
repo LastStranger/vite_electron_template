@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 
 const isDev = process.env.IS_DEV === "true";
@@ -6,9 +6,9 @@ const createWindow = () => {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
-        // webPreferences: {
-        //     preload: path.join(__dirname, 'preload.js')
-        // }
+        webPreferences: {
+            preload: path.join(__dirname, 'preload.js')
+        }
     })
     if (isDev) {
         mainWindow.loadURL("http://localhost:3000");
@@ -17,6 +17,7 @@ const createWindow = () => {
         // mainWindow.webContents.openDevTools();
         mainWindow.loadFile(path.join(__dirname, "build", "index.html"));
     }
+    ipcMain.handle('ping',() => 'ping tong');
 }
 
 app.whenReady().then(() => {
